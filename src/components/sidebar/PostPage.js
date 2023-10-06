@@ -6,7 +6,7 @@ export default function PostPage({ $target }) {
   $page.className = "documentDiv";
   $target.appendChild($page);
 
-  const data = request;
+  const data = request("/documents");
 
   const testData = [
     {
@@ -34,7 +34,7 @@ export default function PostPage({ $target }) {
   ];
   new PostList({
     $target: $page,
-    data: testData,
+    testData: data,
   });
 
   //TODO: 컴포넌프화 시키기

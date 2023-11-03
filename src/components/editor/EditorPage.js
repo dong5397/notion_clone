@@ -28,7 +28,7 @@ export default function EditorPage({ $target, initialState }) {
               body: JSON.stringify(editPost),
             });
           }
-
+          history.replaceState(null, null, `/documents/${responsePost.id}`);
           this.setState({
             postId: responsePost.id,
           });
@@ -46,7 +46,6 @@ export default function EditorPage({ $target, initialState }) {
     if (nextState === undefined) {
       return;
     }
-
     if (this.state.postId !== nextState.postId) {
       this.state = nextState;
 
@@ -58,8 +57,10 @@ export default function EditorPage({ $target, initialState }) {
       }
       return;
     }
+
     this.state = nextState;
 
+    this.render();
     editor.setState(
       this.state.post || {
         title: "",
@@ -71,8 +72,6 @@ export default function EditorPage({ $target, initialState }) {
   this.render = () => {
     $target.appendChild($page);
   };
-
-  this.render();
 
   const fetchPost = async () => {
     const { postId } = this.state;

@@ -1,4 +1,4 @@
-import NewBtn from "../\bbutton/NewBtn.js";
+import NewBtn from "../button/NewBtn.js";
 import { pushUrl } from "../../utils/Router.js";
 import { request } from "../../utils/api.js";
 import PostList from "./PostList.js";
